@@ -1,91 +1,76 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
-#include<string.h>
+#include<string>
 using namespace std;
 class student
 {
-
-	char studentName[30];
+	char *name;
 	char grade;
-	int marks1, marks2, marks3;
-    public:
-		char *getStudentName()
-		{
-			return studentName;
-	     }
-		char getGrade()
-		{
-			return grade;
-		}
-	void stud(char studName[30])
+	int m1, m2, m3;
+public:
+	void setdata(char *Studentname, char g, int marks1, int marks2, int marks3)
 	{
-		strcpy_s(studentName, studName);
+		name = (char*)malloc(20);
+		strcpy(name, Studentname);
+		grade = g;
+		m1 = marks1;
+		m2 = marks2;
+		m3 = marks3;
 	}
-	void grad(char ch)
+	int average(int m1, int m2, int m3)
 	{
-		grade = ch;
+		return (m1 + m2 + m3) / 3;
 	}
-	void marks(int  m1, int m2, int m3)
-	{
-		marks1 = m1;
-		marks2 = m2;
-		marks3 = m3;
-	}
-	int m1()
-	{
-		return marks1;
-	}
-	int m2()
-	{
-		return marks2;
-	}
-	int m3()
-	{
-		return marks3;
-	}
-};
-class CollegeCourse
-{
-	int avg;
- public:
-	student set_Data(char studentName[30], char grade, int  marks1, int marks2, int mark3)
-	{
-		student s;
-		s.stud(studentName);
-		s.grad(grade);
-		s.marks(marks1, marks2, mark3);
-		return s;
-	}
-	void calculateAverage(student &s)
-	{
-		avg= (s.m1() + s.m2() + s.m3()) / 3.0;
-	}
-	void ComputeGrade()
+	char compute_grade(int avg)
 	{
 		if (avg > 60)
+		{
 			cout << "first class";
-		else if (avg > 50 && avg > 60)
-			cout << "second class";
-		else if (avg > 40 && avg < 50)
-			cout << "third class";
+			return 'A';
+		}
+		else if (50 < avg&&avg > 60)
+		{
+			cout << "Second class";
+			return 'B';
+		}
+		else if (40 < avg && 50 > avg)
+		{
+			cout << "Third Class";
+			return 'C';
+		}
+
 		else
-			cout << "fail";
+		{
+			cout << "FAIL";
+			return 'F';
+		}
 	}
-	void display(student &s)
+	void display()
 	{
-		cout<<"StudentName :"<< s.getStudentName()<<endl;
-		cout << "grade :" << s.getGrade();
-
+		cout << "\n\n Student name is :" << name;
+		cout << "\n Grade:" << grade;
+		cout << "\n Marks:" << m1;
+		cout << " " << m2;
+		cout << " " << m3;
 	}
-
 };
 int main()
 {
-	CollegeCourse c1;
-	char st[30] = "surya";
 	student s1;
-	s1= c1.set_Data(st, 'a', 90, 90, 90);
-	c1.display(s1);
-	c1.ComputeGrade();
-
-	system("pause");
+	char name[10];
+	cout << "enter student name ";
+	cin >> name;
+	int m1, m2, m3;
+	cout << "Enter marks ";
+	cin >> m1;
+	cin >> m2;
+	cin >> m3;
+	int avg;
+	avg = s1.average(m1, m2, m3);
+	char grade = s1.compute_grade(avg);
+	s1.setdata(name, grade, m1, m2, m3);
+	s1.display();
+	getchar();
+	getchar();
+	return 0;
 }
