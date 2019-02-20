@@ -24,11 +24,23 @@ int main() {
 	}
 	int h;
 	printf("The resultant number is  ");
-	for (h = count - b; h != count - b-1; h = (h + 1) % count)
+	if (b == 0)
 	{
+		for (h = 0; h < count; h++)
+		{
+			printf("%d", a[h]);
+
+		}
+	}
+	else {
+		for (h = count - b; h != count - b - 1; h = (h + 1) % count)
+		{
+			printf("%d", a[h]);
+		}
 		printf("%d", a[h]);
 	}
-
-	printf("%d", a[h]);
+	
+	getchar();
+	getchar();
 	return 0;
 }
