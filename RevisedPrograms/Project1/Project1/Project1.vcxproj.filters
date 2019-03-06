@@ -15,24 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="calculator.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="add.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sub.cpp">
+    <ClCompile Include="div.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mul.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="div.cpp">
+    <ClCompile Include="sub.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source.h">
+    <ClInclude Include="Arithmetic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

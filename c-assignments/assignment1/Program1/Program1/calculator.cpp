@@ -1,10 +1,6 @@
 #include<stdio.h>
-#include"add.cpp"
-#include"sub.cpp"
-#include"mul.cpp"
-#include"div.cpp"
- int result;
-
+#include"Source.h"
+int result;
 int main()
 {
 	int op;
@@ -17,24 +13,25 @@ int main()
 	switch (op)
 	{
 	case 1:
-		result=add(a,b);
+		add(a,b);
 		printf("\n %d + %d = %d", a, b, result);
 		break;
 	case 2:
-		result=sub(a, b);
+		sub(a, b);
 		printf("\n %d - %d = %d", a, b, result);
 		break;
 	case 3:
-		result=mul(a, b);
+		mul(a, b);
 		printf("\n %d * %d = %d", a, b, result);
 		break;
 	case 4:
-	    result=div(a, b);
+	    div(a, b);
 		printf("\n %d / %d = %d", a, b, result);
 		break;
 	default:
 		printf("enter the correct option");
 	}
+	getchar();
 	getchar();
 	return 0;
 
