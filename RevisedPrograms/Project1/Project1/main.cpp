@@ -17,7 +17,7 @@ struct Stack* newNode(float data)
 	Node->data = data;
 	Node->next = NULL;
 	return Node;
-}
+} 
 void push(struct Stack** head, float data)
 {
 	struct Stack* Node = newNode(data);
@@ -246,7 +246,9 @@ int main()
 			}
 		}
 		
-		res = pop(&root);
+		res = pop
+		
+		(&root);
 		if (res != ERROR)
 		{
 			printf("the result is %f", res);
